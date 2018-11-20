@@ -1,0 +1,308 @@
+var loop = 10;
+var noteopen = "unopened";
+var power = 0;
+var pump = 0;
+var engstart = 0;
+var cockpitdoor = 0;
+var crank = 0;
+var button = 0;
+var robotpower = 0;
+var robotgen = 0;
+//to make long loooooop
+var heath = 10;
+var damage = 2;
+//items
+var healthpack = 0;
+var bag = 0;
+//items
+//damage is 2 because your fist do low damage
+alert("hello and welcome to alien isolation! this is an RPG game that will test you skills and ability to survive! can you do it?");
+var name = prompt("we need to ask a few questions first. what do you want your in-game name to be?");
+
+
+while (loop === 10) {
+
+var gender = prompt("well hello " + name + " i also need to know you gender as i am only a computor and i dont know names very well. so are you a 'man' or 'woman'")
+if (gender === "man") {
+  alert("ok mr lets start the game");
+  loop = 5;
+}
+else if (gender === "woman") {
+  alert("ok miss lets start the game");
+  loop = 5;
+}
+else {
+  alert("please only pick man or woman!");
+}
+}
+alert("you are a delivery " + gender + " working for a company called RHC intel. you have been working there for 4 year and you are about to go on you 400th delivery to a staion orbiting jupiter.")
+alert("it is called Sevastopol Station. your ship is carying 2 boxes of food. your objective is to first, start up the ship and fly to Sevastopol and then second, transport the goods to a supply containment officer.")
+loop = 10;
+
+while (loop === 10) {
+//game starts
+var commsdoor = prompt("you are in your spaceship cockpit. do you want to go through the 'door', look at the 'comms' or engage 'startup'")
+if (commsdoor === "door" && cockpitdoor === 1) {
+ alert("you walk through the door")
+  loop = 5;
+}
+else if (commsdoor === "door" && cockpitdoor === 0) {
+  alert("the door is locked");
+}
+else if (commsdoor === "comms") {
+  alert("you look at the comms and click on 'most recent comunication'");
+  alert("me: this is C148 request to leave RHC Station 4");
+  alert("station manager: request granted. what is you ic unit registration number and what are you carying?");
+  alert("me: my ic number is '10035268 and i am carying 2 boxes of food from RHC intel'");
+  alert("station manager: you have 20 minutes to leave " + name);
+  alert("end of comms on drive A");
+  alert("you lift you head away from the tinted screen and take a step back");
+}
+else if (commsdoor === "startup") {
+   alert("you arm and flick the 2 main engine start buttons.")
+   alert("the entire ship begins shake and shudder as the rear turbins are spooled up. then a BANG from behind you as the ignition light alert a warning and the low power light blinks. alarm's flood the ship");
+   alert("you enable the emergency override and all the alarms come to a halt. you realise you realise you need to turn on the generator downstairs, switch on the fuel pump in the engine room and turn on the ignition coils in the engine control room. ")
+   alert("new objective, find a way to start the engines.")
+   cockpitdoor = 1;
+
+}
+else {
+  alert("please write 'comms', 'door' or 'startup'");
+}
+}
+//step into second room
+alert("you step into a small room and find a small table with some things on it, a shelf unit with books and 3 doors. door 1 goes out side, door 2 goes to a ladder going down and door 3 goes to a engine room.");
+loop = 9
+while (loop === 9) {
+
+var shipmap = prompt("do you want to go to the 'table', the 'shelf' or 'door1', 'door2', 'door3' or 'cockpit'?");
+
+if (shipmap === "table") {
+  alert("you walk to the table");
+  alert ("there is a " + noteopen + " note");
+  loop = 6;
+  while (loop === 6) {
+
+  var not = prompt("do you want the 'note', or 'back'? ");
+  if (not === "note") {
+     alert("you read the note");
+     noteopen = "open";
+     alert("dear " + name + "! its you mum. i am looking forward to seeing you when you get back from all that space tecno doodle! i would love it if you could write back as there are so many question. yours, mum.");
+  loop = 6;
+  }
+  if (not === "back") {
+    alert("you go back")
+    alert("you step into a small room and find a small table with some things on it, a shelf unit with books and 3 doors. door 1 goes out side, door 2 goes to a ladder going down and door 3 goes to a engine room.");
+    loop = 9;
+  }
+  }
+  loop = 9;
+}
+else if (shipmap === "shelf") {
+  alert("you walk to the shelf");
+  alert("there are books. one is called pink dwarf, one is called how to train you cat, and the last book is called alex in wonderland")
+  loop = 9;
+}
+else if (shipmap === "door1") {
+  alert("you walk to the door and pull on the handle but it is locked dew to low air pressure in the air lock");
+}
+else if (shipmap === "door2") {
+  alert("you walk to the door");
+  alert ("you enter a small room with a ladder and some lights");
+  loop = 15;
+  while (loop === 15) {
+    var floorswitch = prompt("do you what to go 'up' the ladder, 'down' the ladder or 'back'?");
+   if (floorswitch === "back") {
+     alert ("you head back");
+     loop = 9;
+   }
+   else if (floorswitch === "up") {
+     alert ("you climb up the ladder");
+     alert("you enter a small room with one door");
+     loop = 16;
+     while (loop === 16) {
+       var upstairoom = prompt("there is a 'door', a 'switch' or you can go 'back'");
+       if (upstairoom === "back") {
+         alert ("you head back");
+         loop = 15;
+       }
+      else if (upstairoom === "door") {
+        alert ("you go to the door");
+        if (button === 0) {
+          alert("the door is locked");
+        }
+        else if (button === 1) {
+          alert("you go through the door and enter a small room")
+          loop = 17;
+          while (loop === 17) {
+            var updroom = prompt("there is a small 'generator', a 'door1', a 'door2' or you can go 'back'")
+          if(updroom === "back") {
+            alert("you head back");
+            loop = 16;
+          }
+          else if (updroom === "door2") {
+            alert("you walk to the door");
+            alert("it is locked");
+            alert("you head back");
+          }
+          else if (updroom === "door1") {
+            alert("you walk to the door");
+            alert("it is locked");
+            alert("you head back");
+          }
+        else if (updroom === "generator" && robotgen === 0) {
+                alert("you go to the generator");
+              alert("you pull the handle and the generator turns on")
+              robotgen = 1;
+              alert("you go back");
+            }
+        else if (updroom === "generator" && robotgen === 1) {
+          alert("you go to the generator");
+        alert("you pull the handle and the generator turns off")
+        robotgen = 0;
+        alert("you go back");
+        }
+        else {
+          alert("please write 'generator', a 'door1', a 'door2' or 'back'");
+        }
+        }
+      }
+    }
+      else if (upstairoom === "switch" && button === 0) {
+        alert("you go to the switch");
+        alert("you flick the switch to the ON position and a beep is heared")
+        button = 1;
+       }
+      else if (upstairoom === "switch" && button === 1) {
+        alert("you go to the switch");
+        alert("you flick the switch to the OFF position and a beep is heared")
+        button = 0;
+      }
+     }
+   }
+   else if (floorswitch === "down") {
+     alert ("you climb down the ladder");
+     alert ("you enter a large maintenence room full of machinery and equitment. you look around");
+     loop = 14;
+     while (loop === 14) {
+       var basement = prompt("there is a 'shelf', a 'robot', a 'generator' or you can go 'back' up the ladder");
+       if (basement === "shelf") {
+         alert ("you go to the shelf");
+         alert ("you find a pull crank");;
+        crank = 1;
+       }
+       else if (basement === "robot" && robotgen === 0) {
+         alert("you go to the robot")
+         alert("the robot is off")
+         alert("objective, find a way to power up the robot")
+       }
+      else if (basement === "robot" && robotgen === 1) {
+        alert ("you go to the robot");
+        alert ("robot: HELLO!!! how are you?");
+        var robothello = prompt("1: hey! i am great! could you help me start the generator.                 2:yeah shut up and turn this dam generator on!                                  3:hello. just turn on the generator. i need it on")
+        if (crank === 0) {
+          alert ("robot: why certainty. however i need a pull crank to start it. it should be somewhere around here")
+        }
+        else if (crank === 1 && power === 1) {
+          alert ("robot: the generator is on you know.")
+        }
+        else if (crank === 1 ) {
+          alert ("robot: why certainty. however i need a pull crank to... oh you have it! give me one second")
+          alert ("the robot put's the crank on to the generator and pulls. the generator spooles into life as it fires.")
+        power = 1;
+        }
+
+      }
+      else if (basement === "generator") {
+         alert ("you go to the generator")
+        if (power === 0) {
+          alert ("you try and start the generator but it will not work")
+        }
+        else if (power === 1) {
+          alert ("the generator is running fine and producing power")
+        }
+
+      }
+      else if (basement === "back") {
+        alert ("you go back")
+        loop = 15;
+      }
+      }
+     }
+  }
+  loop = 9;
+}
+
+if (shipmap === "door3") {
+  alert("you walk to the door");
+  alert ("you step into a large room filled with machinery and control panels.");
+  loop = 15;
+  while (loop === 15) {
+  var controsd = prompt("do you want to go 'back' or look at the 'control' panels");
+  if (controsd === "back") {
+    alert ("you head back");
+    loop = 9;
+  }
+else if (controsd === "control" && power === 0) {
+  alert ("you head to the control panel and see 'FUEL PUMP' so you switch it on.")
+  alert ("a loud beep is heared so you switch it off. you realise the power is off and it needs to be on to turn on the fuel pumps!")
+}
+else if (controsd === "control" && pump === 1) {
+  alert ("the fuel pumps are armed")
+}
+else if (controsd === "control" && power === 1) {
+  alert ("you head to the control panel and see 'FUEL PUMP' so you switch it on.");
+  alert ("a light turns on indicating the fuel pumps are working and armed.");
+  alert ("you step away from the contol panel");
+  pump = 1;
+}
+else {
+  alert ("please only write 'back' or 'control'")
+}
+
+
+}
+}
+if (shipmap === "cockpit") {
+  alert("you head back the way you came");
+  loop = 10;
+  while (loop === 10) {
+  var commsdoor = prompt("you are in your spaceship cockpit. do you want to go through the 'door', look at the 'comms' or engage 'startup' ")
+  if (commsdoor === "door") {
+   alert("you walk through the door")
+   loop = 9;
+  }
+  else if (commsdoor === "comms") {
+    alert("you look at the comms and click on 'most recent comunication'");
+    alert("me: this is C148 request to leave RHC Station 4");
+    alert("station manager: request granted. what is you ic unit registration number and what are you carying?");
+    alert("me: my ic number is '10035268 and i am carying 2 boxes of food from RHC intel'");
+    alert("station manager: you have 20 minutes to leave " + name);
+    alert("end of comms on drive A");
+    alert("you lift you head away from the tinted screen and take a step back");
+  }
+
+  else if (commsdoor === "startup" && power === 0) {
+     alert("you arm and flick the 2 main engine start buttons.")
+     alert("the entire ship begins shake and shudder as the rear turbins are spooled up. then a BANG from behind you as the ignition light alert a warning and the low power light blinks. alarm's flood the ship");
+     alert("you enable the emergency override and all the alarms come to a halt. you realise you realise you need to turn on the generator downstairs, switch on the fuel pump in the engine room and turn on the ignition coils in the engine control room. ")
+     alert("new objective, find a way to start the engines.")
+}
+  else if (commsdoor === "startup" && pump === 1) {
+    alert("you arm and flick the 2 main engine start buttons.")
+    alert("the entire ship begins shake and shudder as the rear turbins are spooled up with a loud winding sound. a light blinks alerting a high fuel pressure then it goes out")
+    alert("thank you for playing the demo!")
+    loop = 12;
+  }
+  else {
+    alert("please write 'comms', 'door' or 'startup'");
+  }
+  }
+  //step into second room
+  alert("you step into a small room and find a small table with some things on it, a shelf unit with books and 3 doors. door 1 goes out side, door 2 goes to a bath room and door 3 goes to a storage room.");
+}
+else {
+  loop = 9;
+}
+}
+alert ("if you are reading this they YAY it worked!");
