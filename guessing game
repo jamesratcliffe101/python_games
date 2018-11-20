@@ -1,0 +1,95 @@
+import random
+import time
+import os
+
+first = 999
+second = 999
+third = 999
+name1 = "not_a_name"
+name2 = "not_a_name"
+name3 = "not_a_name"
+
+while True:
+   start = input(">>>press enter to start<<<")
+   time.sleep(0.5)
+   name = input("hello! what is you name?")
+   attempts = 0
+   time.sleep(1)
+   print("welcome " + name + ".")
+   time.sleep(1)
+   loop = 1
+   while loop == 1:
+       game_start = input("do you want to play a game? (yes or no)")
+       time.sleep(0.5)
+       if game_start == "yes":
+           loop = 0
+       elif game_start == "no":
+           print("oh... ok " + name)
+       else:
+           print("please only say 'yes' or 'no'")
+           time.sleep(1)
+   print("\n")
+   time.sleep(1)
+   print("how to play: \nI will think of a number between 1 and 100 then, \n you will try and guess it. if your guess is too low or high, \n i will tell you and you will guess again")
+   ran_int = random.randint(1,100)
+   time.sleep(1)
+   print("\n \n")
+   loop = 1
+   while loop == 1:
+       guess = input("guess the number")
+       guess = int(guess)
+       if guess > 100:
+           print("that number you guessed is over 100 \n i am only thinking of a number between 100 and 1")
+           attempts += 1
+           time.sleep (1)
+           print("\n")
+       elif guess < 0:
+           print("that number you guessed is under 1 \n i am only thinking of a number between 100 and 1")
+           attempts += 1
+           time.sleep (1)
+           print("\n")
+       elif guess == ran_int:
+           attempts += 1
+           print("well done " + name + "! you guessed it in" , attempts , "attempts!")
+           loop = 0
+       elif guess > ran_int:
+           print("too high!")
+           attempts += 1
+           time.sleep(1)
+           print("\n")
+       elif guess < ran_int:
+           print("too low!")
+           attempts += 1
+           time.sleep(1)
+           print("\n")
+       else:
+           print("something went wrong!")
+           time.sleep(1)
+           print("\n")
+   time.sleep(1)
+   print("score board")
+
+   if attempts < first:
+       third = second
+       name3 = name2
+       second = first
+       name2 = name1
+       first = attempts
+       name1 = input("insert gamer tag:")
+
+   elif attempts < second:
+       third = second
+       name3 = name2
+       second = attempts
+       name2 = input("insert gamer tag:")
+
+   elif attempts < third:
+       third = attempts
+       name3 = input("insert gamer tag:")
+
+   time.sleep(0.3)
+   print("------------->")
+   time.sleep(0.3)
+   print("1st place:" , first , "by" , name1)
+   print("2nd place:" , second , "by" , name2)
+   print("3rd place:" , third , "by" , name3)
