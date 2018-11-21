@@ -1,5 +1,6 @@
 import random
 import time
+import turtle
 
 #score
 first = 0
@@ -10,6 +11,131 @@ name2 = "not_a_name"
 name3 = "not_a_name"
 
 while True:
+ while True:
+
+ #turtle stuff
+
+  turtle.bgcolor("black")
+  reactor_temp_indicator = turtle.Turtle()
+  reactor_temp_indicator_text = turtle.Turtle()
+  reactor_temp_indicator.color("#550000")
+  reactor_temp_indicator.pensize(7)
+  reactor_temp_indicator.shape("square")
+  reactor_temp_indicator.penup()
+  reactor_temp_indicator.setposition(-300, 300)
+  reactor_temp_indicator.shapesize(6)
+  reactor_temp_indicator.pendown()
+  reactor_temp_indicator_text.penup()
+  reactor_temp_indicator_text.setposition(-300, 275)
+  reactor_temp_indicator_text.pendown()
+  reactor_temp_indicator_text.hideturtle()
+  reactor_temp_indicator_text.write("reactor temp\n       high" , False , 'center', font=('sans' , 14 , 'bold'))
+
+  button_reactor_on_indicator = turtle.Turtle()
+  button_reactor_on_indicator_text = turtle.Turtle()
+  button_reactor_on_indicator.color("#004000")
+  button_reactor_on_indicator.pensize(7)
+  button_reactor_on_indicator.shape("square")
+  button_reactor_on_indicator.penup()
+  button_reactor_on_indicator.setposition(-175, 300)
+  button_reactor_on_indicator.shapesize(6)
+  button_reactor_on_indicator.pendown()
+  button_reactor_on_indicator_text.penup()
+  button_reactor_on_indicator_text.setposition(-175, 275)
+  button_reactor_on_indicator_text.pendown()
+  button_reactor_on_indicator_text.hideturtle()
+  button_reactor_on_indicator_text.write("reactor \n online" , False , 'center', font=('sans' , 14 , 'bold'))
+
+  steam_valve_pressure_indicator = turtle.Turtle()
+  steam_valve_pressure_indicator_text = turtle.Turtle()
+  steam_valve_pressure_indicator.color("#550000")
+  steam_valve_pressure_indicator.pensize(7)
+  steam_valve_pressure_indicator.shape("square")
+  steam_valve_pressure_indicator.penup()
+  steam_valve_pressure_indicator.setposition(-50, 300)
+  steam_valve_pressure_indicator.shapesize(6)
+  steam_valve_pressure_indicator.pendown()
+  steam_valve_pressure_indicator_text.penup()
+  steam_valve_pressure_indicator_text.setposition(-50, 270)
+  steam_valve_pressure_indicator_text.pendown()
+  steam_valve_pressure_indicator_text.hideturtle()
+  steam_valve_pressure_indicator_text.write(" high steam \n     valve \n  pressure" , False , 'center', font=('sans' , 14 , 'bold'))
+
+  output_power_indicator = turtle.Turtle()
+  output_power_indicator_text = turtle.Turtle()
+  output_power_indicator.color("#550000")
+  output_power_indicator.pensize(7)
+  output_power_indicator.shape("square")
+  output_power_indicator.penup()
+  output_power_indicator.setposition(75, 300)
+  output_power_indicator.shapesize(6)
+  output_power_indicator.pendown()
+  output_power_indicator_text.penup()
+  output_power_indicator_text.setposition(75, 275)
+  output_power_indicator_text.pendown()
+  output_power_indicator_text.hideturtle()
+  output_power_indicator_text.write(" high output \n     power" , False , 'center', font=('sans' , 14 , 'bold'))
+
+  generator_on_indicator = turtle.Turtle()
+  generator_on_indicator_text = turtle.Turtle()
+  generator_on_indicator.color("#004000")
+  generator_on_indicator.pensize(7)
+  generator_on_indicator.shape("square")
+  generator_on_indicator.penup()
+  generator_on_indicator.setposition(200, 300)
+  generator_on_indicator.shapesize(6)
+  generator_on_indicator.pendown()
+  generator_on_indicator_text.penup()
+  generator_on_indicator_text.setposition(200, 275)
+  generator_on_indicator_text.pendown()
+  generator_on_indicator_text.hideturtle()
+  generator_on_indicator_text.write("generator \n       on" , False , 'center', font=('sans' , 14 , 'bold'))
+
+  coolant_temp_indicator = turtle.Turtle()
+  coolant_temp_indicator_text = turtle.Turtle()
+  coolant_temp_indicator.color("#550000")
+  coolant_temp_indicator.pensize(7)
+  coolant_temp_indicator.shape("square")
+  coolant_temp_indicator.penup()
+  coolant_temp_indicator.setposition(325, 300)
+  coolant_temp_indicator.shapesize(6)
+  coolant_temp_indicator.pendown()
+  coolant_temp_indicator_text.penup()
+  coolant_temp_indicator_text.setposition(325, 280)
+  coolant_temp_indicator_text.pendown()
+  coolant_temp_indicator_text.hideturtle()
+  coolant_temp_indicator_text.write("high coolant\n       temp" , False , 'center', font=('sans' , 14 , 'bold'))
+
+  button_coolant_pump_indicator = turtle.Turtle()
+  button_coolant_pump_indicator_text = turtle.Turtle()
+  button_coolant_pump_indicator.color("#004000")
+  button_coolant_pump_indicator.pensize(7)
+  button_coolant_pump_indicator.shape("square")
+  button_coolant_pump_indicator.penup()
+  button_coolant_pump_indicator.setposition(-300, 150)
+  button_coolant_pump_indicator.shapesize(6)
+  button_coolant_pump_indicator.pendown()
+  button_coolant_pump_indicator_text.penup()
+  button_coolant_pump_indicator_text.setposition(-300, 130)
+  button_coolant_pump_indicator_text.pendown()
+  button_coolant_pump_indicator_text.hideturtle()
+  button_coolant_pump_indicator_text.write("coolant\n  pump" , False , 'center', font=('sans' , 14 , 'bold'))
+
+  turbine_rpm_indicator = turtle.Turtle()
+  turbine_rpm_indicator_text = turtle.Turtle()
+  turbine_rpm_indicator.color("#550000")
+  turbine_rpm_indicator.pensize(7)
+  turbine_rpm_indicator.shape("square")
+  turbine_rpm_indicator.penup()
+  turbine_rpm_indicator.setposition(-175, 150)
+  turbine_rpm_indicator.shapesize(6)
+  turbine_rpm_indicator.pendown()
+  turbine_rpm_indicator_text.penup()
+  turbine_rpm_indicator_text.setposition(-175, 130)
+  turbine_rpm_indicator_text.pendown()
+  turbine_rpm_indicator_text.hideturtle()
+  turbine_rpm_indicator_text.write("      high \n turbine rpm" , False , 'center', font=('sans' , 14 , 'bold'))
+
 
   #control variable list
   fuel_rod_control = 0
@@ -203,6 +329,7 @@ while True:
         coolant_temp = 0
 
 
+
    print("--CALCULATING--")
    time.sleep(3)
    print("--AQUIRING_DATA--")
@@ -210,6 +337,64 @@ while True:
    print("--PROCESING_DATA--")
    time.sleep(5)
    print("--PROCESS_COMPLETE-- \n")
+   time.sleep(1)
+
+   if reactor_temp > 650:
+     reactor_temp_indicator.color("red")
+     reactor_temp_indicator_text.write("reactor temp\n       high" , False , 'center', font=('sans' , 14 , 'bold'))
+   else:
+       reactor_temp_indicator.color("#550000")
+       reactor_temp_indicator_text.write("reactor temp\n       high" , False , 'center', font=('sans' , 14 , 'bold'))
+
+   if button_reactor_on == 1:
+       button_reactor_on_indicator.color("green")
+       button_reactor_on_indicator_text.write("reactor \n online" , False , 'center', font=('sans' , 14 , 'bold'))
+   else:
+       button_reactor_on_indicator.color("#004000")
+       button_reactor_on_indicator_text.write("reactor \n online" , False , 'center', font=('sans' , 14 , 'bold'))
+
+   if steam_valve_pressure > 500:
+       steam_valve_pressure_indicator.color("red")
+       steam_valve_pressure_indicator_text.write(" high steam \n     valve \n  pressure" , False , 'center', font=('sans' , 14 , 'bold'))
+   else:
+       steam_valve_pressure_indicator.color("#550000")
+       steam_valve_pressure_indicator_text.write(" high steam \n     valve \n  pressure" , False , 'center', font=('sans' , 14 , 'bold'))
+
+   if output_power > 5900:
+       output_power_indicator.color("red")
+       output_power_indicator_text.write(" high output \n     power" , False , 'center', font=('sans' , 14 , 'bold'))
+   else:
+       output_power_indicator.color("#550000")
+       output_power_indicator_text.write(" high output \n     power" , False , 'center', font=('sans' , 14 , 'bold'))
+
+   if generator_on == 1:
+       generator_on_indicator.color("green")
+       generator_on_indicator_text.write("generator \n       on" , False , 'center', font=('sans' , 14 , 'bold'))
+   else:
+       generator_on_indicator.color("#004000")
+       generator_on_indicator_text.write("generator \n       on" , False , 'center', font=('sans' , 14 , 'bold'))
+
+   if coolant_temp > 550:
+       coolant_temp_indicator.color("red")
+       coolant_temp_indicator_text.write("high coolant\n       temp" , False , 'center', font=('sans' , 14 , 'bold'))
+   else:
+       coolant_temp_indicator.color("#550000")
+       coolant_temp_indicator_text.write("high coolant\n       temp" , False , 'center', font=('sans' , 14 , 'bold'))
+
+   if button_coolant_pump == 1:
+       button_coolant_pump_indicator.color("green")
+       button_coolant_pump_indicator_text.write("coolant\n  pump" , False , 'center', font=('sans' , 14 , 'bold'))
+   else:
+       button_coolant_pump_indicator.color("#004000")
+       button_coolant_pump_indicator_text.write("coolant\n  pump" , False , 'center', font=('sans' , 14 , 'bold'))
+
+   if  turbine_rpm > 6000:
+       turbine_rpm_indicator.color("red")
+       turbine_rpm_indicator_text.write("      high \n turbine rpm" , False , 'center', font=('sans' , 14 , 'bold'))
+   else:
+       turbine_rpm_indicator.color("#550000")
+       turbine_rpm_indicator_text.write("      high \n turbine rpm" , False , 'center', font=('sans' , 14 , 'bold'))
+
    time.sleep(1)
    print("reactor_temp =" , int(reactor_temp) , "C°")
    time.sleep(1)
@@ -241,8 +426,10 @@ while True:
        time.sleep(1)
    if generator_on == 0:
        print("generator offline")
+       time.sleep(1)
    elif generator_on == 1:
        print("generator online")
+       time.sleep(1)
 
    print("\n")
    if reactor_temp > 750:
@@ -383,4 +570,3 @@ while True:
      time.sleep(0.1)
      print("\n")
      time.sleep(0.1)
-     
