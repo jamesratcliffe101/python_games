@@ -53,7 +53,7 @@ while True:
   #game starts
   while loop_game is True:
    while loop_gamma is True:
-    print("commands: fuel_rod_control = FRC \n             primary_coolant_control = PCC\n             steam_flow_turbine = SFT\n             button_reactor_on = BRO\n             button_coolant_pump = BCP\n             generator_on = GO\n             (use caps)\n")
+    print("commands:    fuel_rod_control = FRC \n             primary_coolant_control = PCC\n             steam_flow_turbine = SFT\n             button_reactor_on = BRO\n             button_coolant_pump = BCP\n             generator_on = GO\n             (use caps)\n")
     time.sleep(2)
     control = input("input-->")
     if control == "FRC":
@@ -165,7 +165,7 @@ while True:
             time.sleep(1.5)
 
     else:
-        print("please only give the commands FRC, PCC or SFT")
+        print("please only give the commands shown")
         time.sleep(1)
 
     #if buttons are pressed, change variables
@@ -211,21 +211,21 @@ while True:
    time.sleep(5)
    print("--PROCESS_COMPLETE-- \n")
    time.sleep(1)
-   print("reactor_temp =" , int(reactor_temp))
+   print("reactor_temp =" , int(reactor_temp) , "C°")
    time.sleep(1)
-   print("steam_valve_pressure =" , int(steam_valve_pressure))
+   print("steam_valve_pressure =" , int(steam_valve_pressure) , "psi")
    time.sleep(1)
-   print("turbine_rpm =" , int(turbine_rpm))
+   print("turbine_rpm =" , int(turbine_rpm) , "rpm")
    time.sleep(1)
-   print("output_power =" , int(output_power))
+   print("output_power =" , int(output_power) , "MV")
    time.sleep(1)
-   print("coolant_temp =" , int(coolant_temp) ,"\n")
+   print("coolant_temp =" , int(coolant_temp) ,"C°\n")
    time.sleep(1)
-   print("primary_coolant_position =" , int(primary_coolant_position))
+   print("primary_coolant_position =" , int(primary_coolant_position) , "%")
    time.sleep(1)
-   print("fuel_rod_position =" , int(fuel_rod_position))
+   print("fuel_rod_position =" , int(fuel_rod_position) , "%")
    time.sleep(1)
-   print("steam_flow_turbine_position =" , int(steam_flow_turbine_position), "\n")
+   print("steam_flow_turbine_position =" , int(steam_flow_turbine_position), "%\n")
    time.sleep(2)
    if button_reactor_on == 1:
        print("reactor online")
@@ -383,3 +383,4 @@ while True:
      time.sleep(0.1)
      print("\n")
      time.sleep(0.1)
+     
