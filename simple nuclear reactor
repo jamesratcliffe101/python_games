@@ -1,0 +1,385 @@
+import random
+import time
+
+#score
+first = 0
+second = 0
+third = 0
+name1 = "not_a_name"
+name2 = "not_a_name"
+name3 = "not_a_name"
+
+while True:
+
+  #control variable list
+  fuel_rod_control = 0
+  primary_coolant_control = 0
+  steam_flow_turbine = 0
+  button_reactor_on = 0
+  button_coolant_pump = 0
+  generator_on = 0
+
+  #output variable list
+  reactor_temp = 0
+  steam_valve_pressure = 0
+  turbine_rpm = 0
+  output_power = 0
+  coolant_temp = 0
+
+  #percentage variables
+  fuel_rod_position = 0
+  primary_coolant_position = 0
+  steam_flow_turbine_position = 0
+
+  #extra variables
+  total_time = 0
+  wait_time = 0
+  loop_game = False
+  loop_beta = False
+  loop_gamma = False
+  game_over = False
+  money_made = 0
+
+
+  #introduction
+  print("for help go to 'https://www.nei.org/fundamentals/how-a-nuclear-reactor-works'\n\n")
+  time.sleep(0.5)
+  print("hello. you have been asked to control a nuclear reactor. \nyour goal is to run the power plant for as long as you \ncan without going into a meltdown.")
+  time.sleep(4)
+  print("\nwhat things do: fuel_rod_control: will control the temp of the reactor\n                primary_coolant_control: will help control the temp of the reactor\n                steam_flow_turbine: will allow steam into the turbine to create power\n\n")
+  time.sleep(4)
+  loop_game = True
+  loop_gamma = True
+  #game starts
+  while loop_game is True:
+   while loop_gamma is True:
+    print("commands: fuel_rod_control = FRC \n             primary_coolant_control = PCC\n             steam_flow_turbine = SFT\n             button_reactor_on = BRO\n             button_coolant_pump = BCP\n             generator_on = GO\n             (use caps)\n")
+    time.sleep(2)
+    control = input("input-->")
+    if control == "FRC":
+        loop_beta = True
+        while loop_beta is True:
+         fuel_rod_position = int(input("give the position between 1 and 100: "))
+         if fuel_rod_position > 100 or fuel_rod_position < 0:
+            time.sleep(1)
+            print("please only be between 0 and 100")
+            time.sleep(1)
+         else:
+          loop_beta = False
+          time.sleep(1.5)
+          loop_beta = True
+          while loop_beta is True:
+            wait_time = int(input("how long do you want to wait? max = 10: "))
+            if wait_time > 10 or wait_time < 0:
+              time.sleep(1)
+              print("please only be between 0 and 10")
+              time.sleep(1)
+            else:
+              loop_beta = False
+              loop_gamma = False
+              time.sleep(1.5)
+    elif control == "PCC":
+           loop_beta = True
+           while loop_beta is True:
+              primary_coolant_position = int(input("give the position between 1 and 100: "))
+              if primary_coolant_position > 100 or primary_coolant_position < 0:
+                 time.sleep(1)
+                 print("please only be between 0 and 100")
+                 time.sleep(1)
+              else:
+               loop_beta = False
+               time.sleep(1.5)
+               loop_beta = True
+               while loop_beta is True:
+                 wait_time = int(input("how long do you want to wait? max = 10: "))
+                 if wait_time > 10 or wait_time < 0:
+                   time.sleep(1)
+                   print("please only be between 0 and 10")
+                   time.sleep(1)
+                 else:
+                     loop_beta = False
+                     loop_gamma = False
+                     time.sleep(1.5)
+    elif control == "SFT":
+          loop_beta = True
+          while loop_beta is True:
+             steam_flow_turbine_position = int(input("give the position between 1 and 80: "))
+             if steam_flow_turbine_position > 80 or steam_flow_turbine_position < 0:
+                time.sleep(1)
+                print("please only be between 0 and 80")
+                time.sleep(1)
+             else:
+              loop_beta = False
+              time.sleep(1.5)
+          loop_beta = True
+          while loop_beta is True:
+             wait_time = int(input("how long do you want to wait? max = 10: "))
+             if wait_time > 10 or wait_time < 0:
+                time.sleep(1)
+                print("please only be between 0 and 10")
+                time.sleep(1)
+             else:
+              loop_beta = False
+              loop_gamma = False
+              time.sleep(1.5)
+    elif control == "BRO":
+        loop_beta = True
+        while loop_beta is True:
+           button_reactor_on = int(input("1 = on, 0 = off: "))
+           if button_reactor_on > 1 or button_reactor_on < 0:
+              time.sleep(1)
+              print("please only be 1 or 0")
+              time.sleep(1)
+           else:
+            wait_time = 1
+            loop_beta = False
+            loop_gamma = False
+            time.sleep(1.5)
+
+    elif control == "BCP":
+           loop_beta = True
+           while loop_beta is True:
+              button_coolant_pump = int(input("1 = on, 0 = off: "))
+              if button_coolant_pump > 1 or button_coolant_pump < 0:
+                 time.sleep(1)
+                 print("please only be 1 or 0")
+                 time.sleep(1)
+              else:
+               wait_time = 1
+               loop_beta = False
+               loop_gamma = False
+               time.sleep(1.5)
+
+    elif control == "GO":
+        loop_beta = True
+        while loop_beta is True:
+           generator_on = int(input("1 = on, 0 = off: "))
+           if generator_on > 1 or generator_on < 0:
+              time.sleep(1)
+              print("please only be 1 or 0")
+              time.sleep(1)
+           else:
+            wait_time = 1
+            loop_beta = False
+            loop_gamma = False
+            time.sleep(1.5)
+
+    else:
+        print("please only give the commands FRC, PCC or SFT")
+        time.sleep(1)
+
+    #if buttons are pressed, change variables
+
+   if button_reactor_on == 0:
+       fuel_rod_position = 0
+   if button_coolant_pump == 0:
+       primary_coolant_position = 0
+   if generator_on == 0:
+       output_power = 0
+
+
+    #algorythem to calculate things
+
+   total_time = wait_time + total_time
+   if primary_coolant_position - coolant_temp < 0:
+       reactor_temp = (reactor_temp + (fuel_rod_position - 0) * wait_time) - 25
+   else:
+      reactor_temp = (reactor_temp + (fuel_rod_position - (primary_coolant_position - coolant_temp)) * wait_time) - 25
+   coolant_temp = (primary_coolant_position / 111.111111111111111111111111111111111111111111111111111111111) * reactor_temp
+   steam_valve_pressure = (((steam_flow_turbine_position - 100) *-1) / 130) * reactor_temp
+   turbine_rpm = (steam_valve_pressure * steam_flow_turbine_position) / 2.10243
+   output_power = turbine_rpm / 1.09361111
+   money_made = (money_made + output_power * wait_time) / 100
+
+   if reactor_temp <= 0:
+        reactor_temp = 0
+   if steam_valve_pressure < 0:
+        steam_valve_pressure = 0
+   if turbine_rpm < 0:
+        turbine_rpm = 0
+   if output_power < 0:
+        output_power = 0
+   if coolant_temp < 0:
+        coolant_temp = 0
+
+
+   print("--CALCULATING--")
+   time.sleep(3)
+   print("--AQUIRING_DATA--")
+   time.sleep(1)
+   print("--PROCESING_DATA--")
+   time.sleep(5)
+   print("--PROCESS_COMPLETE-- \n")
+   time.sleep(1)
+   print("reactor_temp =" , int(reactor_temp))
+   time.sleep(1)
+   print("steam_valve_pressure =" , int(steam_valve_pressure))
+   time.sleep(1)
+   print("turbine_rpm =" , int(turbine_rpm))
+   time.sleep(1)
+   print("output_power =" , int(output_power))
+   time.sleep(1)
+   print("coolant_temp =" , int(coolant_temp) ,"\n")
+   time.sleep(1)
+   print("primary_coolant_position =" , int(primary_coolant_position))
+   time.sleep(1)
+   print("fuel_rod_position =" , int(fuel_rod_position))
+   time.sleep(1)
+   print("steam_flow_turbine_position =" , int(steam_flow_turbine_position), "\n")
+   time.sleep(2)
+   if button_reactor_on == 1:
+       print("reactor online")
+       time.sleep(1)
+   elif button_reactor_on == 0:
+       print("reactor offline")
+       time.sleep(1)
+   if button_coolant_pump == 1:
+       print("coolant pump online")
+       time.sleep(1)
+   elif button_coolant_pump == 0:
+       print("coolant pump offline")
+       time.sleep(1)
+   if generator_on == 0:
+       print("generator offline")
+   elif generator_on == 1:
+       print("generator online")
+
+   print("\n")
+   if reactor_temp > 750:
+        print("your reactor exploded!")
+        time.sleep(1)
+        loop_game = False
+        loop_gamma = False
+        game_over = True
+   elif reactor_temp > 650 and game_over is False:
+        print("!!!CAUTION!!! \n --->REACTOR TEMP IS DANGEROUSLY HIGH")
+        time.sleep(1)
+        loop_game = True
+        loop_gamma = True
+        odds = random.randint(1, 100)
+        if odds > 25:
+            button_reactor_on = 0
+
+   if coolant_temp > 550 and coolant_temp < 826 and game_over is False:
+        print("!!!CAUTION!!! \n --->COOLANT TEMP IS DANGEROUSLY HIGH")
+        time.sleep(1)
+        loop_game = True
+        loop_gamma = True
+        odds = random.randint(1, 100)
+        if odds > 25:
+            button_coolant_pump = 0
+   elif coolant_temp > 825:
+         print("your coolant exploded!")
+         time.sleep(1)
+         loop_game = False
+         loop_gamma = False
+         game_over = True
+
+   if steam_valve_pressure > 500 and steam_valve_pressure < 551 and game_over is False:
+         print("!!!CAUTION!!! \n --->STEAM VALVE PRESSURE IS DANGEROUSLY HIGH")
+         loop_game = True
+         loop_gamma = True
+         time.sleep(1)
+   elif steam_valve_pressure > 550:
+          print("your steam valves exploded!")
+          time.sleep(1)
+          loop_game = False
+          loop_gamma = False
+          game_over = True
+
+   if turbine_rpm > 6000 and turbine_rpm < 7001 and game_over is False:
+         print("!!!CAUTION!!! \n --->TURBINE RPM IS DANGEROUSLY HIGH")
+         time.sleep(1)
+         loop_game = True
+         loop_gamma = True
+   elif turbine_rpm > 7000:
+          print("you turbines exploded!")
+          time.sleep(1)
+          loop_game = False
+          loop_gamma = False
+          game_over = True
+
+   if output_power > 5900 and output_power < 6801 and game_over is False:
+         print("!!!CAUTION!!! \n --->OUTPUT POWER IS DANGEROUSLY HIGH")
+         time.sleep(1)
+         loop_game = True
+         loop_gamma = True
+         odds = random.randint(1, 100)
+         if odds > 25:
+            generator_on = 0
+   elif output_power > 6800:
+          print("you output_power generator exploded!")
+          time.sleep(1)
+          loop_game = False
+          loop_gamma = False
+          game_over = True
+   elif output_power < 5901 and turbine_rpm < 6001 and steam_valve_pressure < 501 and coolant_temp < 551 and reactor_temp < 651:
+       loop_game = True
+       loop_gamma = True
+   if game_over is True:
+     time.sleep(2)
+     print("--->game over<---")
+     time.sleep(1)
+     print("thank you for playing nuclear reactor simulator!")
+     time.sleep(3)
+     print("score board")
+     time.sleep(1)
+
+     if money_made > third and money_made < second:
+         third = money_made
+         name3 = input("insert gamer tag:")
+
+     elif money_made > second and money_made < first:
+        third = second
+        name3 = name2
+        second = money_made
+        name2 = input("insert gamer tag:")
+
+     elif money_made > first:
+        third = second
+        name3 = name2
+        second = first
+        name2 = name1
+        first = money_made
+        name1 = input("insert gamer tag:")
+     else:
+       print("\n you did not make it to the score board \n")
+
+     time.sleep(0.3)
+     print("------------->")
+     time.sleep(0.3)
+     print("1st place: made" , int(first) , "pounds by" , name1)
+     time.sleep(1)
+     print("2nd place: made" , int(second) , "pounds by" , name2)
+     time.sleep(1)
+     print("3rd place: made" , int(third) , "pounds by" , name3)
+     print("\n\n")
+     time.sleep(3)
+     start = input("--->press enter to play<--- \n")
+     time.sleep(1)
+     print("--INITIALISING--")
+     time.sleep(4)
+     print("--RESET_COMPLETE--")
+     time.sleep(0.5)
+     print("--STARTING--")
+     time.sleep(2)
+     print("\n")
+     time.sleep(0.1)
+     print("\n")
+     time.sleep(0.1)
+     print("\n")
+     time.sleep(0.1)
+     print("\n")
+     time.sleep(0.1)
+     print("\n")
+     time.sleep(0.1)
+     print("\n")
+     time.sleep(0.1)
+     print("\n")
+     time.sleep(0.1)
+     print("\n")
+     time.sleep(0.1)
+     print("\n")
+     time.sleep(0.1)
+     print("\n")
+     time.sleep(0.1)
