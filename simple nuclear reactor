@@ -89,7 +89,7 @@ while True:
   generator_on_indicator_text.setposition(200, 275)
   generator_on_indicator_text.pendown()
   generator_on_indicator_text.hideturtle()
-  generator_on_indicator_text.write("generator \n       on" , False , 'center', font=('sans' , 14 , 'bold'))
+  generator_on_indicator_text.write("generator \n   online" , False , 'center', font=('sans' , 14 , 'bold'))
 
   coolant_temp_indicator = turtle.Turtle()
   coolant_temp_indicator_text = turtle.Turtle()
@@ -151,6 +151,151 @@ while True:
   reactor_scram_text.hideturtle()
   reactor_scram_text.write("reactor\n scram" , False , 'center', font=('sans' , 14 , 'bold'))
 
+  steam_valve_open = turtle.Turtle()
+  steam_valve_open_text = turtle.Turtle()
+  steam_valve_open.color("#004000")
+  steam_valve_open.pensize(7)
+  steam_valve_open.shape("square")
+  steam_valve_open.penup()
+  steam_valve_open.setposition(75, 150)
+  steam_valve_open.shapesize(6)
+  steam_valve_open.pendown()
+  steam_valve_open_text.penup()
+  steam_valve_open_text.setposition(75, 130)
+  steam_valve_open_text.pendown()
+  steam_valve_open_text.hideturtle()
+  steam_valve_open_text.write("steam valve\n      open" , False , 'center', font=('sans' , 14 , 'bold'))
+
+  turbine_online = turtle.Turtle()
+  turbine_online_text = turtle.Turtle()
+  turbine_online.color("#004000")
+  turbine_online.pensize(7)
+  turbine_online.shape("square")
+  turbine_online.penup()
+  turbine_online.setposition(200, 150)
+  turbine_online.shapesize(6)
+  turbine_online.pendown()
+  turbine_online_text.penup()
+  turbine_online_text.setposition(200, 130)
+  turbine_online_text.pendown()
+  turbine_online_text.hideturtle()
+  turbine_online_text.write("turbine\n online" , False , 'center', font=('sans' , 14 , 'bold'))
+
+  turbine_trip = turtle.Turtle()
+  turbine_trip_text = turtle.Turtle()
+  turbine_trip.color("#550000")
+  turbine_trip.pensize(7)
+  turbine_trip.shape("square")
+  turbine_trip.penup()
+  turbine_trip.setposition(325, 150)
+  turbine_trip.shapesize(6)
+  turbine_trip.pendown()
+  turbine_trip_text.penup()
+  turbine_trip_text.setposition(325, 130)
+  turbine_trip_text.pendown()
+  turbine_trip_text.hideturtle()
+  turbine_trip_text.write("turbine\n   trip" , False , 'center', font=('sans' , 14 , 'bold'))
+
+  reactor_temp_str = "0"
+
+  reactor_temp_display = turtle.Turtle()
+  reactor_temp_display_text = turtle.Turtle()
+  reactor_temp_display.color("#606060")
+  reactor_temp_display.pensize(7)
+  reactor_temp_display.shape("square")
+  reactor_temp_display.penup()
+  reactor_temp_display.setposition(-300, 0)
+  reactor_temp_display.shapesize(6)
+  reactor_temp_display.pendown()
+  reactor_temp_display_text.penup()
+  reactor_temp_display_text.setposition(-300, -20)
+  reactor_temp_display_text.pendown()
+  reactor_temp_display_text.hideturtle()
+  reactor_temp_display_text.write("reactor temp\n           " + str(reactor_temp_str) , False , 'center', font=('sans' , 14 , 'bold'))
+
+  steam_valve_pressure_str = "0"
+
+  steam_valve_pressure_dispay = turtle.Turtle()
+  steam_valve_pressure_dispay_text = turtle.Turtle()
+  steam_valve_pressure_dispay.color("#606060")
+  steam_valve_pressure_dispay.pensize(7)
+  steam_valve_pressure_dispay.shape("square")
+  steam_valve_pressure_dispay.penup()
+  steam_valve_pressure_dispay.setposition(-175, 0)
+  steam_valve_pressure_dispay.shapesize(6)
+  steam_valve_pressure_dispay.pendown()
+  steam_valve_pressure_dispay_text.penup()
+  steam_valve_pressure_dispay_text.setposition(-175, -30)
+  steam_valve_pressure_dispay_text.pendown()
+  steam_valve_pressure_dispay_text.hideturtle()
+  steam_valve_pressure_dispay_text.write("steam valve\n   pressure\n          " + str(steam_valve_pressure_str) , False , 'center', font=('sans' , 14 , 'bold'))
+
+  coolant_temp_str = "0"
+
+  coolant_temp_display = turtle.Turtle()
+  coolant_temp_display_text = turtle.Turtle()
+  coolant_temp_display.color("#606060")
+  coolant_temp_display.pensize(7)
+  coolant_temp_display.shape("square")
+  coolant_temp_display.penup()
+  coolant_temp_display.setposition(-50, 0)
+  coolant_temp_display.shapesize(6)
+  coolant_temp_display.pendown()
+  coolant_temp_display_text.penup()
+  coolant_temp_display_text.setposition(-50, -20)
+  coolant_temp_display_text.pendown()
+  coolant_temp_display_text.hideturtle()
+  coolant_temp_display_text.write("coolant temp\n         " + str(coolant_temp_str) , False , 'center', font=('sans' , 14 , 'bold'))
+
+  turbine_rpm_str = "0"
+
+  turbine_rpm_display = turtle.Turtle()
+  turbine_rpm_display_text = turtle.Turtle()
+  turbine_rpm_display.color("#606060")
+  turbine_rpm_display.pensize(7)
+  turbine_rpm_display.shape("square")
+  turbine_rpm_display.penup()
+  turbine_rpm_display.setposition(75, 0)
+  turbine_rpm_display.shapesize(6)
+  turbine_rpm_display.pendown()
+  turbine_rpm_display_text.penup()
+  turbine_rpm_display_text.setposition(75, -20)
+  turbine_rpm_display_text.pendown()
+  turbine_rpm_display_text.hideturtle()
+  turbine_rpm_display_text.write("turbine rpm\n        " + str(turbine_rpm_str) , False , 'center', font=('sans' , 14 , 'bold'))
+
+  output_power_str = "0"
+
+  output_power_display = turtle.Turtle()
+  output_power_display_text = turtle.Turtle()
+  output_power_display.color("#606060")
+  output_power_display.pensize(7)
+  output_power_display.shape("square")
+  output_power_display.penup()
+  output_power_display.setposition(200, 0)
+  output_power_display.shapesize(6)
+  output_power_display.pendown()
+  output_power_display_text.penup()
+  output_power_display_text.setposition(200, -20)
+  output_power_display_text.pendown()
+  output_power_display_text.hideturtle()
+  output_power_display_text.write("output power\n         " + str(output_power_str) , False , 'center', font=('sans' , 14 , 'bold'))
+
+  coolant_trip = turtle.Turtle()
+  coolant_trip_text = turtle.Turtle()
+  coolant_trip.color("#550000")
+  coolant_trip.pensize(7)
+  coolant_trip.shape("square")
+  coolant_trip.penup()
+  coolant_trip.setposition(325, 0)
+  coolant_trip.shapesize(6)
+  coolant_trip.pendown()
+  coolant_trip_text.penup()
+  coolant_trip_text.setposition(325, -30)
+  coolant_trip_text.pendown()
+  coolant_trip_text.hideturtle()
+  coolant_trip_text.write("coolant\n  pump\n    trip" , False , 'center', font=('sans' , 14 , 'bold'))
+
 
   #control variable list
   fuel_rod_control = 0
@@ -159,6 +304,7 @@ while True:
   button_reactor_on = 0
   button_coolant_pump = 0
   generator_on = 0
+  turbine_start = 0
 
   #output variable list
   reactor_temp = 0
@@ -183,7 +329,6 @@ while True:
 
 
   #introduction
-  print("for help go to 'https://www.nei.org/fundamentals/how-a-nuclear-reactor-works'\n\n")
   time.sleep(0.5)
   print("hello. you have been asked to control a nuclear reactor. \nyour goal is to run the power plant for as long as you \ncan without going into a meltdown.")
   time.sleep(4)
@@ -194,7 +339,7 @@ while True:
   #game starts
   while loop_game is True:
    while loop_gamma is True:
-    print("commands:    fuel_rod_control = FRC \n             primary_coolant_control = PCC\n             steam_flow_turbine = SFT\n             button_reactor_on = BRO\n             button_coolant_pump = BCP\n             generator_on = GO\n             (use caps)\n")
+    print("commands:    fuel_rod_control = FRC \n             primary_coolant_control = PCC\n             steam_flow_turbine = SFT\n             button_reactor_on = BRO\n             button_coolant_pump = BCP\n             generator_on = GO\n             turbine_start = TS\n(use caps)\n")
     time.sleep(2)
     control = input("input-->")
     if control == "FRC":
@@ -304,6 +449,19 @@ while True:
             loop_beta = False
             loop_gamma = False
             time.sleep(1.5)
+    elif control == "TS":
+        loop_beta = True
+        while loop_beta is True:
+           turbine_start = int(input("1 = on, 0 = off: "))
+           if turbine_start > 1 or turbine_start < 0:
+              time.sleep(1)
+              print("please only be 1 or 0")
+              time.sleep(1)
+           else:
+            wait_time = 1
+            loop_beta = False
+            loop_gamma = False
+            time.sleep(1.5)
 
     else:
         print("please only give the commands shown")
@@ -325,10 +483,15 @@ while True:
    if primary_coolant_position - coolant_temp < 0:
        reactor_temp = (reactor_temp + (fuel_rod_position - 0) * wait_time) - 25
    else:
-      reactor_temp = (reactor_temp + (fuel_rod_position - (primary_coolant_position - coolant_temp)) * wait_time) - 25
-   coolant_temp = (primary_coolant_position / 111.111111111111111111111111111111111111111111111111111111111) * reactor_temp
+      reactor_temp = (reactor_temp + (fuel_rod_position - (primary_coolant_position - coolant_temp)) * wait_time) - 25 * wait_time
+   if primary_coolant_position == 0:
+       coolant_temp = 0
+   else:
+      coolant_temp = (((primary_coolant_position - 100) *-1) / 111.111111111111111111111111111111111111111111111111111111111) * reactor_temp
    steam_valve_pressure = (((steam_flow_turbine_position - 100) *-1) / 130) * reactor_temp
    turbine_rpm = (steam_valve_pressure * steam_flow_turbine_position) / 2.10243
+   if turbine_start == 0:
+       turbine_rpm = 0
    output_power = turbine_rpm / 1.09361111
    money_made = (money_made + output_power * wait_time) / 100
 
@@ -342,8 +505,10 @@ while True:
         output_power = 0
    if coolant_temp < 0:
         coolant_temp = 0
-
-
+   if turbine_start == 0:
+       turbine_rpm = 0
+   if generator_on == 0:
+       output_power = 0
 
    print("--CALCULATING--")
    time.sleep(3)
@@ -384,12 +549,13 @@ while True:
        output_power_indicator.color("#550000")
        output_power_indicator_text.write(" high output \n     power" , False , 'center', font=('sans' , 14 , 'bold'))
 
-   if generator_on == 1:
+   if  generator_on == 1:
        generator_on_indicator.color("green")
-       generator_on_indicator_text.write("generator \n       on" , False , 'center', font=('sans' , 14 , 'bold'))
+       generator_on_indicator_text.write("generator \n   online" , False , 'center', font=('sans' , 14 , 'bold'))
+       time.sleep(1)
    else:
        generator_on_indicator.color("#004000")
-       generator_on_indicator_text.write("generator \n       on" , False , 'center', font=('sans' , 14 , 'bold'))
+       generator_on_indicator_text.write("generator \n   online" , False , 'center', font=('sans' , 14 , 'bold'))
 
    if coolant_temp > 550:
        coolant_temp_indicator.color("red")
@@ -401,6 +567,8 @@ while True:
    if button_coolant_pump == 1:
        button_coolant_pump_indicator.color("green")
        button_coolant_pump_indicator_text.write("coolant\n  pump" , False , 'center', font=('sans' , 14 , 'bold'))
+       coolant_trip.color("#550000")
+       coolant_trip_text.write("coolant\n  pump\n    trip" , False , 'center', font=('sans' , 14 , 'bold'))
    else:
        button_coolant_pump_indicator.color("#004000")
        button_coolant_pump_indicator_text.write("coolant\n  pump" , False , 'center', font=('sans' , 14 , 'bold'))
@@ -411,6 +579,136 @@ while True:
    else:
        turbine_rpm_indicator.color("#550000")
        turbine_rpm_indicator_text.write("      high \n turbine rpm" , False , 'center', font=('sans' , 14 , 'bold'))
+
+   if steam_flow_turbine_position > 0:
+       steam_valve_open.color("green")
+       steam_valve_open_text.write("steam valve\n      open" , False , 'center', font=('sans' , 14 , 'bold'))
+   else:
+       steam_valve_open.color("#004000")
+       steam_valve_open_text.write("steam valve\n      open" , False , 'center', font=('sans' , 14 , 'bold'))
+
+   if turbine_start == 1:
+       turbine_online.color("green")
+       turbine_online_text.write("turbine\n online" , False , 'center', font=('sans' , 14 , 'bold'))
+       turbine_trip.color("#550000")
+       turbine_trip_text.write("turbine\n   trip" , False , 'center', font=('sans' , 14 , 'bold'))
+   else:
+       turbine_online.color("#004000")
+       turbine_online_text.write("turbine\n online" , False , 'center', font=('sans' , 14 , 'bold'))
+
+   #int display
+   reactor_temp_str = float(reactor_temp_str)
+   reactor_temp_str = int(reactor_temp_str)
+   reactor_temp_str = reactor_temp
+   reactor_temp_str = int(reactor_temp_str)
+   reactor_temp_str = str(reactor_temp_str)
+
+   if reactor_temp >= 0 and reactor_temp <201:
+       reactor_temp_display.color("#606060")
+       reactor_temp_display_text.write("reactor temp\n           " + str(reactor_temp_str) , False , 'center', font=('sans' , 14 , 'bold'))
+
+
+   if reactor_temp > 200 and reactor_temp < 451:
+       reactor_temp_display.color("green")
+       reactor_temp_display_text.write("reactor temp\n           " + str(reactor_temp_str) , False , 'center', font=('sans' , 14 , 'bold'))
+
+
+   if reactor_temp > 450 and reactor_temp < 650:
+       reactor_temp_display.color("orange")
+       reactor_temp_display_text.write("reactor temp\n           " + str(reactor_temp_str) , False , 'center', font=('sans' , 14 , 'bold'))
+
+   if reactor_temp > 649:
+       reactor_temp_display.color("red")
+       reactor_temp_display_text.write("reactor temp\n           " + str(reactor_temp_str) , False , 'center', font=('sans' , 14 , 'bold'))
+
+   steam_valve_pressure_str = float(steam_valve_pressure_str)
+   steam_valve_pressure_str = int(steam_valve_pressure_str)
+   steam_valve_pressure_str = steam_valve_pressure
+   steam_valve_pressure_str = int(steam_valve_pressure_str)
+   steam_valve_pressure_str = str(steam_valve_pressure_str)
+
+   if steam_valve_pressure >=0 and steam_valve_pressure <= 100:
+      steam_valve_pressure_dispay.color("#606060")
+      steam_valve_pressure_dispay_text.write("steam valve\n   pressure\n          " + str(steam_valve_pressure_str) , False , 'center', font=('sans' , 14 , 'bold'))
+
+   if steam_valve_pressure >=101 and steam_valve_pressure <= 350:
+      steam_valve_pressure_dispay.color("green")
+      steam_valve_pressure_dispay_text.write("steam valve\n   pressure\n          " + str(steam_valve_pressure_str) , False , 'center', font=('sans' , 14 , 'bold'))
+
+   if steam_valve_pressure >=351 and steam_valve_pressure <= 500:
+      steam_valve_pressure_dispay.color("orange")
+      steam_valve_pressure_dispay_text.write("steam valve\n   pressure\n          " + str(steam_valve_pressure_str) , False , 'center', font=('sans' , 14 , 'bold'))
+
+   if steam_valve_pressure >=501:
+      steam_valve_pressure_dispay.color("red")
+      steam_valve_pressure_dispay_text.write("steam valve\n   pressure\n          " + str(steam_valve_pressure_str) , False , 'center', font=('sans' , 14 , 'bold'))
+
+
+   coolant_temp_str = float(coolant_temp_str)
+   coolant_temp_str = int(coolant_temp_str)
+   coolant_temp_str = coolant_temp
+   coolant_temp_str = int(coolant_temp_str)
+   coolant_temp_str = str(coolant_temp_str)
+
+   if coolant_temp >=0 and coolant_temp <= 100:
+       coolant_temp_display.color("#606060")
+       coolant_temp_display_text.write("coolant temp\n         " + str(coolant_temp_str) , False , 'center', font=('sans' , 14 , 'bold'))
+
+   if coolant_temp >=101 and coolant_temp <= 400:
+       coolant_temp_display.color("green")
+       coolant_temp_display_text.write("coolant temp\n         " + str(coolant_temp_str) , False , 'center', font=('sans' , 14 , 'bold'))
+
+   if coolant_temp >=401 and coolant_temp <= 550:
+       coolant_temp_display.color("orange")
+       coolant_temp_display_text.write("coolant temp\n         " + str(coolant_temp_str) , False , 'center', font=('sans' , 14 , 'bold'))
+
+   if coolant_temp >=551:
+       coolant_temp_display.color("red")
+       coolant_temp_display_text.write("coolant temp\n         " + str(coolant_temp_str) , False , 'center', font=('sans' , 14 , 'bold'))
+
+   turbine_rpm_str = float(turbine_rpm_str)
+   turbine_rpm_str = int(turbine_rpm_str)
+   turbine_rpm_str = turbine_rpm
+   turbine_rpm_str = int(turbine_rpm_str)
+   turbine_rpm_str = str(turbine_rpm_str)
+
+   if turbine_rpm >=0 and turbine_rpm <= 1000:
+       turbine_rpm_display.color("#606060")
+       turbine_rpm_display_text.write("turbine rpm\n        " + str(turbine_rpm_str) , False , 'center', font=('sans' , 14 , 'bold'))
+
+   if turbine_rpm >=1001 and turbine_rpm <= 4500:
+       turbine_rpm_display.color("green")
+       turbine_rpm_display_text.write("turbine rpm\n        " + str(turbine_rpm_str) , False , 'center', font=('sans' , 14 , 'bold'))
+
+   if turbine_rpm >=4501 and turbine_rpm <= 6000:
+       turbine_rpm_display.color("orange")
+       turbine_rpm_display_text.write("turbine rpm\n        " + str(turbine_rpm_str) , False , 'center', font=('sans' , 14 , 'bold'))
+
+   if turbine_rpm >=6001:
+       turbine_rpm_display.color("red")
+       turbine_rpm_display_text.write("turbine rpm\n        " + str(turbine_rpm_str) , False , 'center', font=('sans' , 14 , 'bold'))
+
+   output_power_str = float(output_power_str)
+   output_power_str = int(output_power_str)
+   output_power_str = output_power
+   output_power_str = int(output_power_str)
+   output_power_str = str(output_power_str)
+
+   if output_power >=0 and output_power <= 900:
+       output_power_display.color("#606060")
+       output_power_display_text.write("output power\n         " + str(output_power_str) , False , 'center', font=('sans' , 14 , 'bold'))
+
+   if output_power >=901 and output_power <= 4400:
+       output_power_display.color("green")
+       output_power_display_text.write("output power\n         " + str(output_power_str) , False , 'center', font=('sans' , 14 , 'bold'))
+
+   if output_power >=4501 and output_power <= 5900:
+       output_power_display.color("orange")
+       output_power_display_text.write("output power\n         " + str(output_power_str) , False , 'center', font=('sans' , 14 , 'bold'))
+
+   if output_power >=5901:
+       output_power_display.color("red")
+       output_power_display_text.write("output power\n         " + str(output_power_str) , False , 'center', font=('sans' , 14 , 'bold'))
 
    time.sleep(1)
    print("reactor_temp =" , int(reactor_temp) , "C°")
@@ -474,6 +772,8 @@ while True:
         odds = random.randint(1, 100)
         if odds > 25:
             button_coolant_pump = 0
+            coolant_trip.color("red")
+            coolant_trip_text.write("coolant\n  pump\n    trip" , False , 'center', font=('sans' , 14 , 'bold'))
    elif coolant_temp > 825:
          print("your coolant exploded!")
          time.sleep(1)
@@ -498,6 +798,12 @@ while True:
          time.sleep(1)
          loop_game = True
          loop_gamma = True
+         odds = random.randint(1, 100)
+         if odds > 25:
+             turbine_start = 0
+             turbine_trip.color("red")
+             turbine_trip_text.write("turbine\n   trip" , False , 'center', font=('sans' , 14 , 'bold'))
+
    elif turbine_rpm > 7000:
           print("you turbines exploded!")
           time.sleep(1)
