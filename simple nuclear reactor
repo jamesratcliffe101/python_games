@@ -136,6 +136,21 @@ while True:
   turbine_rpm_indicator_text.hideturtle()
   turbine_rpm_indicator_text.write("      high \n turbine rpm" , False , 'center', font=('sans' , 14 , 'bold'))
 
+  reactor_scram = turtle.Turtle()
+  reactor_scram_text = turtle.Turtle()
+  reactor_scram.color("#550000")
+  reactor_scram.pensize(7)
+  reactor_scram.shape("square")
+  reactor_scram.penup()
+  reactor_scram.setposition(-50, 150)
+  reactor_scram.shapesize(6)
+  reactor_scram.pendown()
+  reactor_scram_text.penup()
+  reactor_scram_text.setposition(-50, 130)
+  reactor_scram_text.pendown()
+  reactor_scram_text.hideturtle()
+  reactor_scram_text.write("reactor\n scram" , False , 'center', font=('sans' , 14 , 'bold'))
+
 
   #control variable list
   fuel_rod_control = 0
@@ -349,6 +364,8 @@ while True:
    if button_reactor_on == 1:
        button_reactor_on_indicator.color("green")
        button_reactor_on_indicator_text.write("reactor \n online" , False , 'center', font=('sans' , 14 , 'bold'))
+       reactor_scram.color("#550000")
+       reactor_scram_text.write("reactor\n scram" , False , 'center', font=('sans' , 14 , 'bold'))
    else:
        button_reactor_on_indicator.color("#004000")
        button_reactor_on_indicator_text.write("reactor \n online" , False , 'center', font=('sans' , 14 , 'bold'))
@@ -446,6 +463,8 @@ while True:
         odds = random.randint(1, 100)
         if odds > 25:
             button_reactor_on = 0
+            reactor_scram.color("red")
+            reactor_scram_text.write("reactor\n scram" , False , 'center', font=('sans' , 14 , 'bold'))
 
    if coolant_temp > 550 and coolant_temp < 826 and game_over is False:
         print("!!!CAUTION!!! \n --->COOLANT TEMP IS DANGEROUSLY HIGH")
