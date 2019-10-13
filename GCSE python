@@ -1,3 +1,272 @@
 #GCSE programming project
 #writen in python
 #requires pygames
+
+import os
+import time
+import pickle
+import re
+
+username = ""
+password = ""
+email = ""
+password2 = ""
+email2 = ""
+result = []
+sentence = ""
+end_string = ""
+try:
+   with open("UserDataFile", "r")as f:
+        lines = f.read().splitlines()
+        last_line = lines[-1]
+        account_id = last_line[-2:]
+except:
+   account_id = 0
+
+
+
+loop = True
+data_input = "-"
+regex = re.compile('[@_!#$%^&*()<>?/\|}{~:]')
+
+def user_data_input(data_input):
+    os.system('cls')
+    print("----------------\n|the music quiz|\n|              |\n|              |\n|              |\n|              |\n|              |")
+    print("input" , data_input , "here")
+    global data_output
+    data_output = input("--->")
+
+
+
+
+
+
+
+def draw_menu(inputs):
+    os.system('cls')
+    print("----------------\n|the music quiz|\n|              |\n|              |\n|              |\n|              |\n|              |")
+    global i
+    i = -1
+    x = 0
+    while x < len(inputs):
+        print(inputs[x])
+        x += 1
+    decision = input("--->")
+    decision = decision.upper()
+    decision = decision.strip()
+    x = 0
+    while x < len(inputs):
+        if decision == inputs[x][0]:
+            i = x
+        x += 1
+
+def sign_in():
+  loop = True
+  while loop:
+    global password
+    global password2
+    global username
+    global email
+    draw_menu(["U) username: " + username, "P) password: " + password2 , "F) forgoten password", "C) check" , "B) back",])
+    if i == 0:
+       user_data_input("username")
+       username = data_output
+    elif i == 1:
+        user_data_input("password")
+        password = data_output
+        password2 = data_output
+    elif i == 2:
+        user_data_input("email")
+    elif i == 3:
+        global result
+        result = []
+        encrypt(password)
+        password = result
+        result = []
+        check_user()
+        password = ""
+        email = ""
+        password2 = ""
+        email2 = ""
+        username = ""
+    elif i == 4:
+        loop = False
+        password = ""
+        email = ""
+        password2 = ""
+        email2 = ""
+        username = ""
+    elif i == -1:
+        print("please type 'S', 'C' or 'E'")
+
+
+def create_account():
+  loop = True
+  while loop:
+    global password
+    global password2
+    global username
+    global email
+    global email2
+    draw_menu(["U) username: " + username, "P) password: " + password2, "E) email(optional): " + email2, "C) check" , "B) back"])
+    if i == 0:
+        user_data_input("username")
+        if len(data_output) >= 30 or len(data_output) <= 5:
+           print("username needs to be between 5 and 30 charicter long")
+           time.sleep(2)
+        elif " " in data_output or not regex.search(data_output) == None:
+           print("username cant contain symbols or spaces")
+           time.sleep(2)
+        else:
+            username = data_output
+
+    elif i == 1:
+        user_data_input("password")
+        if len(data_output) >= 30 or len(data_output) <= 5:
+           print("password needs to be between 5 and 30 charicter long")
+           time.sleep(2)
+        elif " " in data_output or not regex.search(data_output) == None:
+           print("password cant contain symbols or spaces")
+           time.sleep(2)
+        else:
+            password = data_output
+            password2 = data_output
+
+    elif i == 2:
+        user_data_input("email")
+        if "@" and ".com" in data_output:
+            email = data_output
+            email2 = data_output
+        else:
+            print("invalid email")
+            time.sleep(2)
+    elif i == 3:
+        if username != "" and password != "":
+            os.system('cls')
+            print("----------------\n|the music quiz|\n|              |\n|              |\n|              |\n|              |\n|              |")
+            global result
+            result = []
+            encrypt(password)
+            password = result
+            result = []
+            if email != "":
+                encrypt(email)
+                email = result
+            global passed
+            passed = 1
+            check_user_2()
+            if passed == 1:
+               store_data()
+               password2 = ""
+               email2 = ""
+               username = ""
+               print("check sucsessful")
+               time.sleep(1)
+            else:
+               print("username and password already in use")
+               time.sleep(1)
+        else:
+            os.system('cls')
+            print("----------------\n|the music quiz|\n|              |\n|              |\n|              |\n|              |\n|              |")
+            print("invalid infomation")
+            time.sleep(1)
+
+    elif i == 4:
+        loop = False
+        username = ""
+        password = ""
+        email = ""
+        password2 = ""
+        email2 = ""
+    elif i == -1:
+        print("please type 'U', 'P', 'E', 'C' or 'B'")
+        time.sleep(1)
+
+def store_data():
+    global account_id
+    account_id = int(account_id)
+    account_id += 1
+    account_id = str(account_id)
+    UserData = "\n" + username + " " + password + " " + account_id + " " + email + "\n"
+    UserOtherData = account_id
+    account_id = int(account_id)
+    UserDataFile = open("UserDataFile", "a")
+    UserDataFile.write(UserData)
+    UserDataFile.write(UserOtherData)
+
+
+def check_user():
+    global account_id
+    account_id = int(account_id)
+    UserCheckData = username + " " + password
+    with open("UserDataFile", "r")as f:
+        x = 0
+        loop = True
+        if password or username == "":
+            loop = False
+        while x <= account_id * 2 or loop:
+           f_contents = f.readline()
+           if UserCheckData in f_contents:
+               print("pass")
+               time.sleep(5)
+
+               loop = False
+           else:
+               x += 1
+        print("fail")
+        time.sleep(5)
+
+def check_user_2():
+    global account_id
+    account_id = int(account_id)
+    with open("UserDataFile", "r")as f:
+        x = 0
+        loop = True
+        while x <= account_id * 2:
+            f_contents = f.readline()
+            if username in f_contents:
+                global passed
+                passed = 0
+            else:
+                x += 1
+
+
+
+def encrypt(sentence):
+
+    for letter in sentence:
+        global encrypt_letter
+        global result
+
+        encrypt_letter = ord(letter) + 29
+        encrypt_letter = '0x{:02x}'.format(encrypt_letter)
+        result.append(encrypt_letter)
+    result = "  ".join(result)
+
+
+def decrypt(encrypt_sentence):
+
+    global end_string
+    global sentence
+
+    for numbers in encrypt_sentence:
+        numbers = int(numbers, 16)
+        numbers -= 29
+        numbers = chr(numbers)
+        end_string = end_string + numbers
+
+
+
+
+while True:
+    draw_menu(["S) sign in","C) create account","E) exit",])
+    if i == 0:
+       sign_in()
+    elif i == 1:
+        create_account()
+    elif i == 2:
+        exit()
+    elif i == -1:
+        print("please type 'S', 'C' or 'E'")
+        print(account_id)
+        time.sleep(1)
